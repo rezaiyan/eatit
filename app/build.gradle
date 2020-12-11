@@ -14,6 +14,7 @@ android {
     }
 
     buildFeatures {
+
         buildConfig = true
     }
 
@@ -40,6 +41,10 @@ dependencies {
     implementation Libs.appCompat
     implementation Libs.constraintLayout
     implementation Libs.material
+
+    implementation project(Modules.usermanager)
+    implementation project(Modules.navigation)
+    implementation project(Modules.home)
 
     implementation Libs.mvrx
 

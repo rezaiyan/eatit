@@ -1,0 +1,7 @@
+apply from: "$rootDir/android-library.gradle"
+
+dependencies {
+    implementation project(Modules.views)
+    implementation project(Modules.resources)
+    implementation project(Modules.navigation)
+}

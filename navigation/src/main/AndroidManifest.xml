@@ -1,0 +1,8 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="ir.alirezaiyan.navigation">
+
+    <application>
+        <activity android:name="ir.alirezaiyan.navigation.core.ContainerActivity" />
+    </application>
+
+</manifest>

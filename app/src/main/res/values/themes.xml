@@ -3,7 +3,6 @@
         <item name="colorPrimary">@color/pink_primary</item>
         <item name="colorPrimaryDark">@color/pink_secondary</item>
         <item name="colorAccent">@color/white</item>
-        <item name="android:navigationBarColor">@color/white</item>
         <item name="android:windowBackground">@color/white</item>
         <item name="android:windowTranslucentStatus">true</item>
     </style>

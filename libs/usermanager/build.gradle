@@ -1,0 +1,7 @@
+apply from: "$rootDir/android-library.gradle"
+
+dependencies {
+    api project(Modules.cache)
+    testImplementation Libs.junit
+    testImplementation Libs.mockk
+}

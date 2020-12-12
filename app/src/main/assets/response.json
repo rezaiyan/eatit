@@ -1,0 +1,186 @@
+{
+  "categories": [
+    {
+      "filters": [
+        {
+          "id": 1,
+          "title": "spicy"
+        },
+        {
+          "id": 2,
+          "title": "american"
+        }
+      ],
+      "foods": [
+        {
+          "description": "omatensaus, mozzarella, rode ui, paprika, pepperoni, baconstrips, champignons \u0026 gehakt.",
+          "id": 1,
+          "metadata": "150 grams , 35 cm",
+          "photo": "file:///android_asset/photo/pizza/pizza1.jpg",
+          "price": "55 USD",
+          "title": "Deluxe"
+        },
+        {
+          "description": "Tomatensaus, mozzarella \u0026 pepperoni. Deze heerlijke traditional is belegd met.",
+          "id": 2,
+          "metadata": "200 grams , 40 cm",
+          "photo": "file:///android_asset/photo/pizza/pizza2.jpg",
+          "price": "50 USD",
+          "title": "Pepperoni"
+        },
+        {
+          "description": "Canadian bacon, homemade pizza crust, pizza sauce",
+          "id": 3,
+          "metadata": "190 grams , 35 cm",
+          "photo": "file:///android_asset/photo/pizza/pizza3.jpg",
+          "price": "35 USD",
+          "title": "Hawaiian"
+        },
+        {
+          "description": "San marzano, fresh mozzarella cheese, red pepper flakes, olive",
+          "id": 4,
+          "metadata": "120 grams , 35 cm",
+          "photo": "file:///android_asset/photo/pizza/pizza4.jpg",
+          "price": "50 USD",
+          "title": "Margherita"
+        },
+        {
+          "description": "Blue cheese, pizza dough, hot sauce, mozzarella, cornmeal",
+          "id": 5,
+          "metadata": "150 grams , 35 cm",
+          "photo": "file:///android_asset/photo/pizza/pizza5.jpg",
+          "price": "40 USD",
+          "title": "Buffalo"
+        }
+      ],
+      "title": "Pizza"
+    },
+    {
+      "filters": [
+        {
+          "id": 3,
+          "title": "Nigiri"
+        },
+        {
+          "id": 4,
+          "title": "Maki"
+        }
+      ],
+      "foods": [
+        {
+          "description": "Fresh tuna, salmon roe, avocado, spring onion, fresh",
+          "id": 1,
+          "metadata": "930 grams , 38 cm",
+          "photo": "file:///android_asset/photo/sushi/sushi1.jpg",
+          "price": "35 USD",
+          "title": "The egoist"
+        },
+        {
+          "description": "Tuna, sushi rice, crab meat, teriyaki chicken, salmon roe",
+          "id": 2,
+          "metadata": "",
+          "photo": "file:///android_asset/photo/sushi/sushi2.jpg",
+          "price": "30 USD",
+          "title": "California"
+        },
+        {
+          "description": "Smoked salmon, cream cheese, soy sauce, caviar, cucumber",
+          "id": 3,
+          "metadata": "500 grams , 20 cm",
+          "photo": "file:///android_asset/photo/sushi/sushi3.jpg",
+          "price": "45 USD",
+          "title": "Temaki"
+        },
+        {
+          "description": "Fresh tuna, salmon roe, avocado, spring onion, fresh",
+          "id": 4,
+          "metadata": "700 grams , 25 cm",
+          "photo": "file:///android_asset/photo/sushi/sushi4.jpg",
+          "price": "20 USD",
+          "title": "Sasazushi"
+        },
+        {
+          "description": "Tuna, sushi rice, crab meat, teriyaki chicken, salmon roe",
+          "id": 5,
+          "metadata": "930 grams , 40 cm",
+          "photo": "file:///android_asset/photo/sushi/sushi5.jpg",
+          "price": "50 USD",
+          "title": "Oshizushi"
+        }
+      ],
+      "title": "Sushi"
+    },
+    {
+      "filters": [
+        {
+          "id": 3,
+          "title": "hot"
+        },
+        {
+          "id": 4,
+          "title": "cold"
+        }
+      ],
+      "foods": [
+        {
+          "description": "",
+          "id": 1,
+          "metadata": "300cc",
+          "photo": "file:///android_asset/photo/drink/drink1.jpg",
+          "price": "5 USD",
+          "title": "Soda"
+        },
+        {
+          "description": "",
+          "id": 2,
+          "metadata": "300cc",
+          "photo": "file:///android_asset/photo/drink/drink2.jpg",
+          "price": "8 USD",
+          "title": "Water"
+        },
+        {
+          "description": "",
+          "id": 3,
+          "metadata": "100cc",
+          "photo": "file:///android_asset/photo/drink/drink3.jpg",
+          "price": "2 USD",
+          "title": "Beer"
+        },
+        {
+          "description": "",
+          "id": 4,
+          "metadata": "100cc",
+          "photo": "file:///android_asset/photo/drink/drink4.jpg",
+          "price": "4 USD",
+          "title": "Wine"
+        },
+        {
+          "description": "",
+          "id": 5,
+          "metadata": "200cc",
+          "photo": "file:///android_asset/photo/drink/drink5.jpg",
+          "price": "1 USD",
+          "title": "Juce"
+        }
+      ],
+      "title": "Drinks"
+    }
+  ],
+  "promotions": [
+    {
+      "action": "https://dindinn.com/",
+      "id": 1,
+      "photo": "file:///android_asset/banner1.jpg"
+    },
+    {
+      "action": "https://dindinn.com/",
+      "id": 2,
+      "photo": "file:///android_asset/banner2.jpg"
+    },
+    {
+      "action": "https://dindinn.com/",
+      "id": 3,
+      "photo": "file:///android_asset/banner3.jpg"
+    }
+  ]
+}

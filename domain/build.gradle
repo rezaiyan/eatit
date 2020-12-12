@@ -3,9 +3,8 @@ apply plugin: 'dagger.hilt.android.plugin'
 apply plugin: 'kotlin-kapt'
 
 dependencies {
-    implementation Libs.appCompat
-    implementation Libs.mvrx
-    implementation Libs.playCore
+    api project(Modules.network)
+    implementation Libs.rxJava
     implementation Libs.hiltAndroid
     kapt Libs.hiltAndroidCompiler
 }

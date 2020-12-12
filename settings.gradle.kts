@@ -1,10 +1,11 @@
 include(
-    ":app",
-    ":navigation",
-    ":common:cache",
     ":common:resources",
-    ":common:views",
-    ":common:views",
+    ":libs:usermanager",
+    ":common:network",
     ":features:home",
-    ":libs:usermanager"
+    ":common:cache",
+    ":common:views",
+    ":navigation",
+    ":domain",
+    ":app"
 )

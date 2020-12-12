@@ -1,14 +1,34 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <style name="Headline" parent="TextAppearance.MaterialComponents.Headline5">
-        <item name="android:textSize">24sp</item>
-    </style>
+    <declare-styleable name="DotsIndicator">
+        <attr name="dot_width" format="dimension" />
+        <attr name="dot_height" format="dimension" />
+        <attr name="dot_margin" format="dimension" />
+        <attr name="dot_animator" format="reference" />
+        <attr name="dot_animator_reverse" format="reference" />
+        <attr name="dot_drawable" format="reference" />
 
-    <style name="Subtitle" parent="TextAppearance.MaterialComponents.Headline5">
-        <item name="android:textSize">20sp</item>
-    </style>
+        <attr name="dot_orientation" format="enum">
+            <enum name="horizontal" value="0" />
+            <enum name="vertical" value="1" />
+        </attr>
 
-    <style name="Body" parent="TextAppearance.MaterialComponents.Body1"/>
+        <attr name="dot_gravity">
+            <flag name="top" value="0x30" />
+            <flag name="bottom" value="0x50" />
+            <flag name="left" value="0x03" />
+            <flag name="right" value="0x05" />
+            <flag name="center_vertical" value="0x10" />
+            <flag name="fill_vertical" value="0x70" />
+            <flag name="center_horizontal" value="0x01" />
+            <flag name="fill_horizontal" value="0x07" />
+            <flag name="center" value="0x11" />
+            <flag name="fill" value="0x77" />
+            <flag name="clip_vertical" value="0x80" />
+            <flag name="clip_horizontal" value="0x08" />
+            <flag name="start" value="0x00800003" />
+            <flag name="end" value="0x00800005" />
+        </attr>
 
-    <style name="Caption" parent="TextAppearance.MaterialComponents.Caption"/>
+    </declare-styleable>
 </resources>

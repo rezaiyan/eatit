@@ -2,8 +2,10 @@ package ir.alirezaiyan.navigation.core
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import dagger.hilt.android.AndroidEntryPoint
 import ir.alirezaiyan.navigation.extensions.replaceFragment
 
+@AndroidEntryPoint
 class ContainerActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {

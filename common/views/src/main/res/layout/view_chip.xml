@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <com.google.android.material.chip.Chip
+        android:id="@+id/chipView"
+        style="@style/Widget.MaterialComponents.Chip.Filter"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:clickable="false"
+        android:focusable="false"
+        android:focusableInTouchMode="false"
+        android:includeFontPadding="false"
+        android:singleLine="true"
+        android:stateListAnimator="@null"
+        tools:text="@tools:sample/full_names"
+        android:layout_marginStart="8dp"
+        android:textColor="@android:color/darker_gray"
+        android:visibility="visible"
+        app:checkedIconEnabled="false"
+        app:checkedIconVisible="false"
+        app:chipBackgroundColor="@android:color/white"
+        android:textSize="12sp"
+        app:chipMinTouchTargetSize="0dp"
+        app:chipStrokeWidth="1dp"
+        app:chipStrokeColor="@android:color/darker_gray"
+        app:closeIconEnabled="false"
+        app:rippleColor="@android:color/transparent"
+        tools:targetApi="lollipop" />
+
+</FrameLayout>

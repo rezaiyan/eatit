@@ -6,6 +6,7 @@ kapt {
 }
 
 dependencies {
+    implementation project(Modules.network)
     api Libs.glide
 
     api Libs.mvrx

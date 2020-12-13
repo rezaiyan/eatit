@@ -16,6 +16,7 @@ import com.airbnb.mvrx.withState
 import com.bumptech.glide.Glide
 import com.google.android.material.tabs.TabLayoutMediator
 import dagger.hilt.android.AndroidEntryPoint
+import ir.alirezaiyan.network.model.Category
 import ir.alirezaiyan.views.extensions.appBarHeight
 import kotlinx.android.synthetic.main.fragment_home.*
 import javax.inject.Inject
@@ -38,6 +39,7 @@ class HomeFragment : HomeFragmentBase() {
             )
 
         swipeRefreshLayout.setOnRefreshListener { viewModel.onSwipeAction() }
+        menuViewPager.offscreenPageLimit = 3
         menuViewPager.registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback() {
             override fun onPageSelected(position: Int) {
             }
@@ -46,7 +48,7 @@ class HomeFragment : HomeFragmentBase() {
         viewModel.asyncSubscribe(HomeState::request, uniqueOnly(), onSuccess = {
             tabTitles.clear()
             tabTitles.addAll(it.getTitles())
-            menuViewPager.adapter = stateAdapter(tabTitles)
+            menuViewPager.adapter = menuAdapter(tabTitles, it.categories)
             bannerViewPager.adapter = bannerAdapter(it.getBanners())
             pagerIndicator.setViewPager(bannerViewPager)
             bannerViewPager.adapter!!.registerDataSetObserver(pagerIndicator.dataObserver)
@@ -64,12 +66,12 @@ class HomeFragment : HomeFragmentBase() {
         }
     }
 
-    private fun stateAdapter(tabs: List<String>): FragmentStateAdapter = object :
+    private fun menuAdapter(tabs: List<String>, categories: List<Category>): FragmentStateAdapter = object :
         FragmentStateAdapter(this) {
 
         override fun getItemCount(): Int = tabs.size
 
-        override fun createFragment(position: Int): Fragment = MenuFragment.create(tabs[position])
+        override fun createFragment(position: Int): Fragment = MenuFragment.create(categories[position])
     }
 
     private fun bannerAdapter(banners: List<String>): PagerAdapter = object :

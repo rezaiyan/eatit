@@ -34,7 +34,7 @@ const val FAKE_RESPONSE = "{\n" +
         "          \"description\": \"Canadian bacon, homemade pizza crust, pizza sauce\",\n" +
         "          \"id\": 3,\n" +
         "          \"metadata\": \"190 grams , 35 cm\",\n" +
-        "          \"photo\": \"file:///android_asset/photo/pizza/pizza3.jpg\",\n" +
+        "          \"photo\": \"file:///android_asset/photo/pizza/pizza3.png\",\n" +
         "          \"price\": \"35 USD\",\n" +
         "          \"title\": \"Hawaiian\"\n" +
         "        },\n" +
@@ -42,7 +42,7 @@ const val FAKE_RESPONSE = "{\n" +
         "          \"description\": \"San marzano, fresh mozzarella cheese, red pepper flakes, olive\",\n" +
         "          \"id\": 4,\n" +
         "          \"metadata\": \"120 grams , 35 cm\",\n" +
-        "          \"photo\": \"file:///android_asset/photo/pizza/pizza4.jpg\",\n" +
+        "          \"photo\": \"file:///android_asset/photo/pizza/pizza4.png\",\n" +
         "          \"price\": \"50 USD\",\n" +
         "          \"title\": \"Margherita\"\n" +
         "        },\n" +

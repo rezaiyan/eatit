@@ -7,7 +7,7 @@ import android.widget.FrameLayout
 import com.airbnb.epoxy.ModelProp
 import com.airbnb.epoxy.ModelView
 import ir.alirezaiyan.eatit.views.R
-import ir.alirezaiyan.network.model.Filter
+import ir.alirezaiyan.eatit.domain.home.Filter
 import kotlinx.android.synthetic.main.view_filter.view.*
 
 @ModelView(autoLayout = ModelView.Size.MATCH_WIDTH_WRAP_HEIGHT)

@@ -1,4 +1,4 @@
-package ir.alirezaiyan.network.model
+package ir.alirezaiyan.eatit.domain.home
 
 import android.os.Parcelable
 import kotlinx.android.parcel.Parcelize

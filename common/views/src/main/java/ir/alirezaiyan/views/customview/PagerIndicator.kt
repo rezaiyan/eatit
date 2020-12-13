@@ -10,6 +10,7 @@ import android.widget.LinearLayout
 import androidx.annotation.DrawableRes
 import androidx.viewpager.widget.ViewPager
 import androidx.viewpager.widget.ViewPager.OnPageChangeListener
+import ir.alirezaiyan.eatit.resources.scale
 import ir.alirezaiyan.eatit.views.R
 import ir.alirezaiyan.views.extensions.dpToPx
 
@@ -34,9 +35,9 @@ class PagerIndicator : LinearLayout {
                 return
             }
             if (lastPosition >= 0) {
-                getChildAt(lastPosition).animate().scaleX(1f).scaleY(1f).setDuration(150).start()
+                getChildAt(lastPosition).scale(1f)
             }
-            getChildAt(position).animate().scaleX(1.5f).scaleY(1.5f).setDuration(150).start()
+            getChildAt(position).scale(1.5f)
             lastPosition = position
         }
 

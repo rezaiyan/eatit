@@ -1,6 +1,7 @@
 package ir.alirezaiyan.eatit.home
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -16,8 +17,12 @@ import com.airbnb.mvrx.withState
 import com.bumptech.glide.Glide
 import com.google.android.material.tabs.TabLayoutMediator
 import dagger.hilt.android.AndroidEntryPoint
-import ir.alirezaiyan.network.model.Category
+import ir.alirezaiyan.eatit.resources.debounce
+import ir.alirezaiyan.eatit.domain.home.Category
+import ir.alirezaiyan.eatit.resources.scale
 import ir.alirezaiyan.views.extensions.appBarHeight
+import ir.alirezaiyan.views.extensions.isVisible
+import ir.alirezaiyan.views.extensions.visible
 import kotlinx.android.synthetic.main.fragment_home.*
 import javax.inject.Inject
 
@@ -27,8 +32,16 @@ class HomeFragment : HomeFragmentBase() {
     @Inject
     lateinit var viewModelFactory: HomeViewModel.Factory
     private val viewModel: HomeViewModel by fragmentViewModel(HomeViewModel::class)
-    private var tabLayoutMediator : TabLayoutMediator? = null
+    private var tabLayoutMediator: TabLayoutMediator? = null
     private val tabTitles = mutableListOf<String>()
+
+    override fun onStop() {
+        super.onStop()
+        tabLayoutMediator?.detach()
+        if (bannerViewPager.adapter != null && pagerIndicator != null) {
+            bannerViewPager.adapter!!.unregisterDataSetObserver(pagerIndicator.dataObserver)
+        }
+    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -63,19 +76,28 @@ class HomeFragment : HomeFragmentBase() {
     override fun invalidate() {
         withState(viewModel) { state ->
             swipeRefreshLayout.isRefreshing = state.isLoading
+            val cartItemCount = state.cartItemCount()!!
+            if (cartItemCount == 0) {
+                itemCartCounter.scale(0F)
+            } else if (!itemCartCounter.isVisible()) {
+                itemCartCounter.scale(1F)
+            }
+            itemCartCounter.debounce(cartItemCount.toString())
         }
     }
 
-    private fun menuAdapter(tabs: List<String>, categories: List<Category>): FragmentStateAdapter = object :
-        FragmentStateAdapter(this) {
+    private fun menuAdapter(tabs: List<String>, categories: List<Category>): FragmentStateAdapter =
+        object :
+            FragmentStateAdapter(this) {
 
-        override fun getItemCount(): Int = tabs.size
+            override fun getItemCount(): Int = tabs.size
 
-        override fun createFragment(position: Int): Fragment = MenuFragment.create(categories[position])
-    }
+            override fun createFragment(position: Int): Fragment =
+                MenuFragment.create(categories[position])
+        }
 
     private fun bannerAdapter(banners: List<String>): PagerAdapter = object :
-        PagerAdapter(){
+        PagerAdapter() {
 
         override fun getCount(): Int {
             return banners.size
@@ -90,6 +112,7 @@ class HomeFragment : HomeFragmentBase() {
             container.addView(view)
             return view
         }
+
         override fun isViewFromObject(view: View, `object`: Any): Boolean {
             return view === `object`
         }
@@ -100,12 +123,6 @@ class HomeFragment : HomeFragmentBase() {
 
     }
 
-    override fun onStop() {
-        super.onStop()
-        tabLayoutMediator?.detach()
-        if (bannerViewPager.adapter != null && pagerIndicator != null) {
-            bannerViewPager.adapter!!.unregisterDataSetObserver(pagerIndicator.dataObserver)
-        }
-    }
 }
+
 abstract class HomeFragmentBase : BaseMvRxFragment(R.layout.fragment_home)

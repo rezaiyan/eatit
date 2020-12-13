@@ -1,9 +1,11 @@
 package ir.alirezaiyan.eatit.home
 
 import android.os.Bundle
+import android.view.View
 import com.airbnb.mvrx.MvRx
 import com.airbnb.mvrx.args
-import ir.alirezaiyan.network.model.Category
+import com.airbnb.mvrx.parentFragmentViewModel
+import ir.alirezaiyan.eatit.domain.home.Category
 import ir.alirezaiyan.views.filterRow
 import ir.alirezaiyan.views.foodRow
 import ir.alirezaiyan.views.screen.ContainerFragment
@@ -20,6 +22,7 @@ class MenuFragment : ContainerFragment() {
     }
 
     private val category : Category by args()
+    private val viewModel: HomeViewModel by parentFragmentViewModel(HomeViewModel::class)
 
     override fun controller() = simpleController {
         filterRow {
@@ -30,6 +33,7 @@ class MenuFragment : ContainerFragment() {
             foodRow {
                 id(it.id)
                 food(it)
+                clickListener { _ -> viewModel.addToCart(it) }
             }
         }
     }

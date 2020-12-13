@@ -4,6 +4,7 @@ apply plugin: 'kotlin-kapt'
 
 dependencies {
     api project(Modules.network)
+    api project(Modules.cache)
     implementation Libs.rxJava
     implementation Libs.hiltAndroid
     kapt Libs.hiltAndroidCompiler

@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -37,8 +38,8 @@
                     android:id="@+id/pagerIndicator"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:padding="6dp"
                     android:layout_marginBottom="16dp"
+                    android:padding="6dp"
                     app:dot_drawable="@drawable/ic_dot_darkgrey"
                     app:dot_height="8dp"
                     app:dot_margin="4dp"
@@ -70,19 +71,42 @@
         <androidx.viewpager2.widget.ViewPager2
             android:id="@+id/menuViewPager"
             android:layout_width="match_parent"
-            android:overScrollMode="never"
-            android:layout_height="match_parent" />
+            android:layout_height="match_parent"
+            android:overScrollMode="never" />
 
     </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fab"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="56dp"
+        android:layout_height="56dp"
         android:layout_gravity="bottom|end"
-        android:layout_margin="16dp"
         app:backgroundTint="@android:color/white"
+        android:layout_margin="16dp"
         app:rippleColor="@android:color/white"
-        app:srcCompat="@drawable/ic_shopping_cart" />
+        app:srcCompat="@drawable/ic_shopping_cart"
+        app:fabSize="normal" />
+
+    <TextView
+        android:id="@+id/itemCartCounter"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        app:layout_anchor="@id/fab"
+        app:layout_anchorGravity="top|end"
+        android:translationY="8dp"
+        android:translationX="-8dp"
+        android:singleLine="true"
+        android:background="@drawable/ic_dot_darkgrey"
+        android:backgroundTint="#4CAF50"
+        android:elevation="7dp"
+        android:gravity="center"
+        android:textColor="@android:color/white"
+        android:textSize="12sp"
+        android:scaleX="0"
+        android:scaleY="0"
+        android:visibility="visible"
+        tools:text="12" />
+
+
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

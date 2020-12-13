@@ -1,6 +1,10 @@
 apply from: "$rootDir/android-library.gradle"
+apply plugin: 'dagger.hilt.android.plugin'
+apply plugin: 'kotlin-kapt'
 
 dependencies {
     implementation Libs.rxPaper2
     implementation Libs.rxJava
+    implementation Libs.hiltAndroid
+    kapt Libs.hiltAndroidCompiler
 }

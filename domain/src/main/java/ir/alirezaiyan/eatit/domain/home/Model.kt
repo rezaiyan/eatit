@@ -33,8 +33,8 @@ data class Food(
 
 
     fun getRawPrice(): Int {
-//        Integer.parseInt(price.replaceAll("[\\D]", ""))
-        val replace = price.replace("[^0-9]".toRegex(), "")
-        return replace.toInt()
+        return price.replace("[^0-9]".toRegex(), "").toInt()
     }
+
+
 }

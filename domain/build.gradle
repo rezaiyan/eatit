@@ -8,4 +8,6 @@ dependencies {
     api Libs.rxJava
     api Libs.hiltAndroid
     kapt Libs.hiltAndroidCompiler
+    testImplementation Libs.junit
+    testImplementation Libs.mockk
 }

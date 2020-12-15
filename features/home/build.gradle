@@ -12,4 +12,8 @@ dependencies {
     compileOnly Libs.assistedInjectAnnotationsDagger2
     api Libs.hiltAndroid
     kapt Libs.hiltAndroidCompiler
+    testImplementation Libs.mvrxTesting
+    testImplementation Libs.mockk
+    testImplementation Libs.junit
+    testImplementation Libs.coreTesting
 }

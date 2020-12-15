@@ -20,7 +20,7 @@ class PagerIndicator : LinearLayout {
     private var indicatorWidth = -1
     private var indicatorHeight = -1
     private var indicatorMargin = -1
-    private var indicatorBackgroundResId = R.drawable.ic_dot_darkgrey
+    private var indicatorBackgroundResId = R.drawable.ic_dot
     private var lastPosition = -1
     private val internalPageChangeListener: OnPageChangeListener = object : OnPageChangeListener {
         override fun onPageScrolled(
@@ -102,7 +102,7 @@ class PagerIndicator : LinearLayout {
             typedArray.getDimensionPixelSize(R.styleable.DotsIndicator_dot_margin, -1)
         indicatorBackgroundResId = typedArray.getResourceId(
             R.styleable.DotsIndicator_dot_drawable,
-            R.drawable.ic_dot_darkgrey
+            R.drawable.ic_dot
         )
         val orientation = typedArray.getInt(R.styleable.DotsIndicator_dot_orientation, -1)
         setOrientation(if (orientation == VERTICAL) VERTICAL else HORIZONTAL)
@@ -122,7 +122,7 @@ class PagerIndicator : LinearLayout {
             indicatorMargin = dpToPx(DEFAULT_INDICATOR_WIDTH).toInt()
         }
         if (indicatorBackgroundResId == 0) {
-            indicatorBackgroundResId = R.drawable.ic_dot_lightgrey
+            indicatorBackgroundResId = R.drawable.ic_dot
         }
     }
 
@@ -141,11 +141,11 @@ class PagerIndicator : LinearLayout {
         val indicator = View(context)
         indicator.setBackgroundResource(backgroundDrawableId)
         addView(indicator, indicatorWidth, indicatorHeight)
-        indicator.layoutParams = (indicator.layoutParams as LayoutParams).also {
-            it.leftMargin = indicatorMargin
-            it.rightMargin = indicatorMargin
-            it.topMargin = indicatorMargin
-            it.bottomMargin = indicatorMargin
+        indicator.layoutParams = (indicator.layoutParams as LayoutParams).apply {
+            leftMargin = indicatorMargin
+            rightMargin = indicatorMargin
+            topMargin = indicatorMargin
+            bottomMargin = indicatorMargin
         }
     }
 

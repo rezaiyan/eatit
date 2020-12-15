@@ -4,6 +4,7 @@ import android.content.Intent
 import ir.alirezaiyan.navigation.core.Navigator
 
 object HomeNavigation : Navigator() {
-    fun home() = fragmentIntent("ir.alirezaiyan.eatit.home.HomeFragment")
+    const val name = "ir.alirezaiyan.eatit.home.HomeFragment"
+    fun home() = fragmentIntent(name)
         .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK)
 }

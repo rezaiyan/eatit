@@ -1,8 +1,8 @@
 include(
     ":common:resources",
-    ":libs:usermanager",
     ":common:network",
     ":features:home",
+    ":features:cart",
     ":common:cache",
     ":common:views",
     ":navigation",

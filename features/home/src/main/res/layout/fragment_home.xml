@@ -38,9 +38,9 @@
                     android:id="@+id/pagerIndicator"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="16dp"
+                    android:layout_marginBottom="@dimen/largeMargin"
                     android:padding="6dp"
-                    app:dot_drawable="@drawable/ic_dot_darkgrey"
+                    app:dot_drawable="@drawable/ic_dot"
                     app:dot_height="8dp"
                     app:dot_margin="4dp"
                     app:dot_width="8dp" />
@@ -62,51 +62,88 @@
 
     </com.google.android.material.appbar.AppBarLayout>
 
-    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
-        android:id="@+id/swipeRefreshLayout"
+    <androidx.viewpager2.widget.ViewPager2
+        android:id="@+id/menuViewPager"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+        android:overScrollMode="never"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior" />
 
-        <androidx.viewpager2.widget.ViewPager2
-            android:id="@+id/menuViewPager"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:overScrollMode="never" />
+    <FrameLayout
+        android:id="@+id/homeContainer"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
 
-    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
-
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/fab"
-        android:layout_width="56dp"
-        android:layout_height="56dp"
+    <RelativeLayout
+        android:id="@+id/fabContainer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_gravity="bottom|end"
-        app:backgroundTint="@android:color/white"
-        android:layout_margin="16dp"
-        app:rippleColor="@android:color/white"
-        app:srcCompat="@drawable/ic_shopping_cart"
-        app:fabSize="normal" />
-
-    <TextView
-        android:id="@+id/itemCartCounter"
-        android:layout_width="24dp"
-        android:layout_height="24dp"
-        app:layout_anchor="@id/fab"
-        app:layout_anchorGravity="top|end"
-        android:translationY="8dp"
-        android:translationX="-8dp"
-        android:singleLine="true"
-        android:background="@drawable/ic_dot_darkgrey"
-        android:backgroundTint="#4CAF50"
-        android:elevation="7dp"
-        android:gravity="center"
-        android:textColor="@android:color/white"
-        android:textSize="12sp"
         android:scaleX="0"
-        android:scaleY="0"
-        android:visibility="visible"
-        tools:text="12" />
+        android:scaleY="0">
 
+        <ImageView
+            android:id="@+id/fabIcon"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_centerInParent="true"
+            android:layout_gravity="center"
+            android:contentDescription="@null"
+            android:elevation="7dp"
+            app:srcCompat="@drawable/avd_fab_start" />
 
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/fab"
+            android:layout_width="56dp"
+            android:layout_height="56dp"
+            android:layout_centerInParent="true"
+            android:layout_gravity="center"
+            android:layout_margin="@dimen/largeMargin"
+            android:background="@android:color/white"
+            android:contentDescription="@null"
+            android:elevation="4dp"
+            app:backgroundTint="@android:color/white"
+            app:fabSize="normal"
+            app:pressedTranslationZ="2dp"
+            app:rippleColor="@android:color/white" />
+
+        <TextView
+            android:id="@+id/itemCartCounter"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_alignTop="@id/fab"
+            android:layout_alignRight="@+id/fab"
+            android:layout_marginTop="-6dp"
+            android:layout_marginRight="-6dp"
+            android:background="@drawable/ic_dot"
+            android:backgroundTint="@color/green"
+            android:elevation="7dp"
+            android:gravity="center"
+            android:scaleX="0"
+            android:scaleY="0"
+            android:singleLine="true"
+            android:textColor="@android:color/white"
+            android:textSize="12sp"
+            android:visibility="visible"
+            tools:text="12" />
+
+    </RelativeLayout>
+
+    <FrameLayout
+        android:id="@+id/loadingLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@android:color/white"
+        android:clickable="true"
+        android:focusable="true">
+
+        <ImageView
+            android:id="@+id/loadingImageView"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_gravity="center"
+            android:src="@drawable/loading" />
+
+    </FrameLayout>
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

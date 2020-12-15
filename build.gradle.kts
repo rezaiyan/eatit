@@ -10,10 +10,6 @@ buildscript {
     }
 }
 
-plugins {
-    id("de.fayard.buildSrcVersions") version Versions.buildSrcVersionsGradlePlugin
-}
-
 allprojects {
     repositories {
         maven { url = uri("https://jitpack.io") }

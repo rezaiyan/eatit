@@ -3,7 +3,9 @@ package ir.alirezaiyan.navigation.core
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import dagger.hilt.android.AndroidEntryPoint
+import ir.alirezaiyan.navigation.extensions.isHome
 import ir.alirezaiyan.navigation.extensions.replaceFragment
+import ir.alirezaiyan.navigation.features.HomeNavigation
 
 @AndroidEntryPoint
 class ContainerActivity : AppCompatActivity() {
@@ -11,22 +13,28 @@ class ContainerActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         overridePendingTransition(0, 0)
         super.onCreate(savedInstanceState)
-        if (savedInstanceState == null) loadFragment()
+        if (savedInstanceState == null)
+            loadFragment(HomeNavigation.name)
     }
 
-    private fun loadFragment() {
+    private fun loadFragment(fragmentName: String = intent.getStringExtra(FRAGMENT_NAME)!!) {
         replaceFragment(
             fragment = ClassRegistry.loadFragment(
-                intent.getStringExtra(FRAGMENT_NAME)!!,
+                fragmentName,
                 intent.getBundleExtra(FRAGMENT_BUNDLE)
             ),
-            backstack = false
+            backStack = false
         )
     }
 
     override fun onBackPressed() {
-        overridePendingTransition(0, 0)
-        finishAfterTransition()
+        if (supportFragmentManager.isHome()) {
+            overridePendingTransition(0, 0)
+            finishAfterTransition()
+        } else {
+            super.onBackPressed()
+        }
+
     }
 
     companion object {

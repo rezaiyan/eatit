@@ -8,7 +8,7 @@ import java.util.concurrent.ConcurrentHashMap
 /**
  * Helps to load a class by fully qualified name, with a cache.
  */
-internal object ClassRegistry {
+object ClassRegistry {
    private val CLASS_MAP = ConcurrentHashMap<String, Class<*>>()
 
    @Suppress("UNCHECKED_CAST")

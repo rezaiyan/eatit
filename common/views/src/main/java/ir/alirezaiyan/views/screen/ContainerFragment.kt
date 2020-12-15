@@ -6,7 +6,6 @@ import com.airbnb.epoxy.EpoxyController
 import com.airbnb.epoxy.EpoxyRecyclerView
 import com.airbnb.mvrx.BaseMvRxFragment
 import ir.alirezaiyan.eatit.views.R
-import ir.alirezaiyan.views.extensions.enableStateRestoration
 import kotlinx.android.synthetic.main.fragment_container.*
 
 abstract class ContainerFragment : BaseMvRxFragment(R.layout.fragment_container) {
@@ -17,12 +16,11 @@ abstract class ContainerFragment : BaseMvRxFragment(R.layout.fragment_container)
         super.onViewCreated(view, savedInstanceState)
         containerRecyclerView.setDelayMsWhenRemovingAdapterOnDetach(0)
         containerRecyclerView.setController(controller)
-        containerRecyclerView.enableStateRestoration()
     }
 
     abstract fun controller(): EpoxyController
 
-    protected inline val recyclerView: EpoxyRecyclerView
+    private inline val recyclerView: EpoxyRecyclerView
         get() = containerRecyclerView
 
     override fun invalidate() {

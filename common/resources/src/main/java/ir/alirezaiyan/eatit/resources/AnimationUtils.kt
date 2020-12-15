@@ -3,9 +3,14 @@ package ir.alirezaiyan.eatit.resources
 import android.animation.ArgbEvaluator
 import android.animation.ValueAnimator
 import android.view.View
+import android.view.ViewPropertyAnimator
 import android.view.animation.TranslateAnimation
 import android.widget.Button
+import android.widget.RelativeLayout
 import android.widget.TextView
+import androidx.annotation.DrawableRes
+import androidx.core.content.ContextCompat
+import com.google.android.material.floatingactionbutton.FloatingActionButton
 
 
 fun Button.updateView(selectedColor: Int, unselectedColor: Int) {
@@ -29,7 +34,16 @@ private fun Button.updateBackgroundColor(
     colorAnimation.start()
 }
 
-fun TextView.debounce(input: String) {
+var TextView.textWithAnim: String
+    get() {
+        return text.toString()
+    }
+    set(value) {
+        setTextWithAnimation(value)
+    }
+
+
+private fun TextView.setTextWithAnimation(input: String) {
     animate()
         .scaleX(0.95f).scaleY(0.95f)
         .setDuration(200)
@@ -42,6 +56,15 @@ fun TextView.debounce(input: String) {
         }
 }
 
-fun View.scale(value: Float, duration: Long = 150) {
+fun View.animateFab() {
+    this.scale(0F).withEndAction {
+        this.scale(1F).start()
+    }.start()
+}
+
+fun View.scale(value: Float): ViewPropertyAnimator =
+    animate().scaleX(value).scaleY(value).setDuration(100L)
+
+fun View.scaleNow(value: Float, duration: Long = 150) {
     animate().scaleX(value).scaleY(value).setDuration(duration).start()
 }

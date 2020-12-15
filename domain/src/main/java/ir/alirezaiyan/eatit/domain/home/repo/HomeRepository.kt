@@ -1,11 +1,10 @@
 package ir.alirezaiyan.eatit.domain.home.repo
 
 import io.reactivex.Single
-import ir.alirezaiyan.cache.FoodDBModel
+import ir.alirezaiyan.eatit.cache.FoodDBModel
 import ir.alirezaiyan.eatit.domain.home.datasource.HomeDataSource
 import ir.alirezaiyan.eatit.domain.home.Food
 import ir.alirezaiyan.eatit.domain.home.Home
-import ir.alirezaiyan.eatit.domain.home.mapper.HomeMapper
 import ir.alirezaiyan.eatit.domain.mapper.Mapper
 import ir.alirezaiyan.eatit.domain.mapper.listMap
 import ir.alirezaiyan.network.HomeResponse
@@ -26,6 +25,12 @@ class HomeRepository @Inject constructor(
 
     fun addToCart(item: Food) =
         homeDataSource.addToCart(foodDBMapper.map(item))
+            .map {
+                foodUIMapper.listMap(it)
+            }
+
+    fun removeFromCart(item: Food) =
+        homeDataSource.removeFromCart(foodDBMapper.map(item))
             .map {
                 foodUIMapper.listMap(it)
             }

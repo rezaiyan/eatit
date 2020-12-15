@@ -1,6 +1,5 @@
 package ir.alirezaiyan.eatit.home
 
-import android.util.Log
 import com.airbnb.mvrx.*
 import com.squareup.inject.assisted.Assisted
 import com.squareup.inject.assisted.AssistedInject
@@ -28,23 +27,18 @@ class HomeViewModel @AssistedInject constructor(
     }
 
 
-    private fun loadCart() {
+    fun loadCart() {
         getCartUseCase().execute {
             copy(request = request, cartItemCount = Success(it()?.size ?: 0))
         }
     }
 
-    fun onSwipeAction() {
-        loadHome()
-    }
-
     fun addToCart(food: Food) {
         addToCartUseCase(food).execute {
-            Log.i("tag", "it() : " + it())
             if (it() != null)
-                copy(request = request, cartItemCount = Success(it()?.size ?: 0))
+                copy(cartItemCount = Success(it()?.size ?: 0))
             else {
-                copy(request = request)
+                copy()
             }
         }
     }

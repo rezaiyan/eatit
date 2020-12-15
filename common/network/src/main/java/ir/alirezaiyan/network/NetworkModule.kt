@@ -23,7 +23,7 @@ object NetworkModule {
     @Provides
     @Singleton
     internal fun providesRetrofit(): Retrofit =
-        createNetworkClient("https://google.com")
+        createNetworkClient("https://github.com")
             .build()
 
     @Provides

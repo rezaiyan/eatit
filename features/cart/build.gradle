@@ -1,0 +1,15 @@
+apply from: "$rootDir/android-library.gradle"
+apply plugin: 'kotlin-kapt'
+apply plugin: 'dagger.hilt.android.plugin'
+
+dependencies {
+    api project(Modules.views)
+    api project(Modules.resources)
+    api project(Modules.navigation)
+    api project(Modules.domain)
+    implementation Libs.rxJava
+    kapt Libs.assistedInjectProcessorDagger2
+    compileOnly Libs.assistedInjectAnnotationsDagger2
+    api Libs.hiltAndroid
+    kapt Libs.hiltAndroidCompiler
+}

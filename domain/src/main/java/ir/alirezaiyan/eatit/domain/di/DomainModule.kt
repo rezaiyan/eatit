@@ -4,7 +4,7 @@ import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.android.components.ApplicationComponent
-import ir.alirezaiyan.cache.FoodDBModel
+import ir.alirezaiyan.eatit.cache.FoodDBModel
 import ir.alirezaiyan.eatit.domain.home.Food
 import ir.alirezaiyan.eatit.domain.home.Home
 import ir.alirezaiyan.eatit.domain.home.mapper.FoodToDBMapper

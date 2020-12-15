@@ -2,7 +2,12 @@
     package="ir.alirezaiyan.navigation">
 
     <application>
-        <activity android:name="ir.alirezaiyan.navigation.core.ContainerActivity" />
+        <activity android:name="ir.alirezaiyan.navigation.core.ContainerActivity">
+            <intent-filter>
+                <category android:name="android.intent.category.LAUNCHER" />
+                <action android:name="android.intent.action.MAIN" />
+            </intent-filter>
+        </activity>
     </application>
 
 </manifest>

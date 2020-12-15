@@ -2,6 +2,7 @@ package ir.alirezaiyan.navigation.core
 
 import android.content.Intent
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentManager
 import kotlin.reflect.KClass
 
 /**
@@ -50,4 +51,5 @@ open class Navigator(private val packageName: String = "ir.alirezaiyan.eatit") {
     // Fragment as an Intent (Container Activity within same feature module) --> ExampleFragment::class
     fun fragmentIntent(clazz: KClass<*>, arg: Any? = null): Intent =
         fragmentIntent(clazz.qualifiedName!!, arg)
+
 }

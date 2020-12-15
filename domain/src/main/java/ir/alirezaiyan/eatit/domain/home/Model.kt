@@ -2,6 +2,8 @@ package ir.alirezaiyan.eatit.domain.home
 
 import android.os.Parcelable
 import kotlinx.android.parcel.Parcelize
+import java.util.regex.Matcher
+import java.util.regex.Pattern
 
 data class Home(val promotions: List<Promotion>, val categories: List<Category>) {
 
@@ -27,4 +29,12 @@ data class Food(
     val metadata: String,
     val price: String,
     val photo: String
-) : Parcelable
+) : Parcelable{
+
+
+    fun getRawPrice(): Int {
+//        Integer.parseInt(price.replaceAll("[\\D]", ""))
+        val replace = price.replace("[^0-9]".toRegex(), "")
+        return replace.toInt()
+    }
+}

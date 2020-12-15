@@ -1,0 +1,16 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="24dp"
+    android:height="24dp"
+    android:viewportWidth="24"
+    android:viewportHeight="24">
+  <path
+      android:name="basket"
+      android:fillAlpha="1"
+      android:pathData="M 15.55 13 C 16.3 13 16.96 12.59 17.3 11.97 L 20.88 5.48 C 21.25 4.82 20.77 4 20.01 4 L 5.21 4 L 4.27 2 L 1 2 L 1 4 L 3 4 L 6.6 11.59 L 5.25 14.03 C 4.52 15.37 5.48 17 7 17 L 19 17 L 19 15 L 7 15 L 8.1 13 L 15.55 13 Z M 6.16 6 L 18.31 6 L 15.55 11 L 8.53 11 L 6.16 6 Z M 7 18 C 5.9 18 5.01 18.9 5.01 20 C 5.01 21.1 5.9 22 7 22 C 8.1 22 9 21.1 9 20 C 9 18.9 8.1 18 7 18 Z M 17 18 C 15.9 18 15.01 18.9 15.01 20 C 15.01 21.1 15.9 22 17 22 C 18.1 22 19 21.1 19 20 C 19 18.9 18.1 18 17 18 Z"
+      android:fillColor="#000000"/>
+  <path
+      android:name="card"
+      android:pathData="M 20 4 L 4 4 C 2.89 4 2.01 4.89 2.01 6 L 2 18 C 2 19.11 2.89 20 4 20 L 20 20 C 21.11 20 22 19.11 22 18 L 22 6 C 22 4.89 21.11 4 20 4 Z M 19 18 L 5 18 C 4.45 18 4 17.55 4 17 L 4 12 L 20 12 L 20 17 C 20 17.55 19.55 18 19 18 Z M 20 8 L 4 8 L 4 6 L 20 6 L 20 8 Z"
+      android:fillColor="#000000"
+      android:fillAlpha="0"/>
+</vector>

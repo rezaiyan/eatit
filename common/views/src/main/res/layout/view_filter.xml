@@ -4,8 +4,8 @@
     android:layout_height="wrap_content"
     android:orientation="horizontal"
     android:gravity="center_vertical"
-    android:paddingHorizontal="16dp"
-    android:paddingBottom="16dp"
+    android:paddingHorizontal="@dimen/largePadding"
+    android:paddingBottom="@dimen/largePadding"
     android:paddingTop="8dp">
 
     <TextView
@@ -20,7 +20,7 @@
         android:id="@+id/filterRecyclerView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
+        android:layout_marginStart="@dimen/standardMargin"
         android:paddingVertical="4dp" />
 
 </LinearLayout>

@@ -4,6 +4,7 @@ import android.content.Context
 import android.util.AttributeSet
 import android.view.View
 import android.widget.FrameLayout
+import androidx.core.content.res.ResourcesCompat
 import com.airbnb.epoxy.CallbackProp
 import com.airbnb.epoxy.ModelProp
 import com.airbnb.epoxy.ModelView
@@ -20,8 +21,8 @@ class FoodRow @JvmOverloads constructor(
     defStyleAttr: Int = 0
 ) : FrameLayout(context, attrs, defStyleAttr) {
 
-    private val greenColor = context.resources.getColor(R.color.green)
-    private val blackColor = context.resources.getColor(R.color.black)
+    private val greenColor = ResourcesCompat.getColor(resources, R.color.green, null)
+    private val blackColor = ResourcesCompat.getColor(resources, R.color.black, null)
 
     init {
         View.inflate(context, R.layout.view_food, this)
@@ -39,11 +40,17 @@ class FoodRow @JvmOverloads constructor(
         }
     }
 
+    private var clickTime = 0L
+
     @CallbackProp
     fun clickListener(clickListener: OnClickListener?) {
         addToCardButton.setOnClickListener {
-            addToCardButton.updateView(greenColor, blackColor)
-            clickListener?.onClick(it)
+            if (System.currentTimeMillis() - 1000 > clickTime) {
+                clickTime = System.currentTimeMillis()
+                addToCardButton.updateView(greenColor, blackColor)
+                clickListener?.onClick(it)
+            }
+
         }
     }
 }

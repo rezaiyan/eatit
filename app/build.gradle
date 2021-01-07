@@ -11,13 +11,21 @@ android {
         applicationId DefaultConfig.id
         minSdkVersion DefaultConfig.minSdk
         targetSdkVersion DefaultConfig.targetSdk
-        versionCode Releases.versionCode
-        versionName Releases.versionName
+        versionCode Releases.appVersionCode
+        versionName Releases.appVersionName
         vectorDrawables.useSupportLibrary = true
     }
 
-    buildFeatures {
+    signingConfigs {
+        config {
+            keyAlias alias
+            keyPassword keyPass
+            storeFile file(keystore)
+            storePassword storePass
+        }
+    }
 
+    buildFeatures {
         buildConfig = true
     }
 
@@ -35,6 +43,7 @@ android {
         sourceCompatibility DefaultConfig.JAVA_VERSION
         targetCompatibility DefaultConfig.JAVA_VERSION
     }
+
 }
 
 dependencies {

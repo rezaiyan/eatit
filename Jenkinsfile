@@ -47,7 +47,7 @@ pipeline {
     }
 
     environment {
-        appName = 'jenkins-blog'
+        appName = 'eatit'
 
         KEY_PASSWORD = credentials('keyPassword')
         KEY_ALIAS = credentials('keyAlias')
@@ -75,7 +75,7 @@ pipeline {
                           doGenerateSubmoduleConfigurations: false,
                           extensions                       : [[$class: 'RelativeTargetDirectory', relativeTargetDir: 'android-keystore']],
                           submoduleCfg                     : [],
-                          userRemoteConfigs                : [[credentialsId: 'GitHub', url: 'https://github.com/<your-keystore-repository>.git']]
+                          userRemoteConfigs                : [[credentialsId: 'GitHub', url: 'https://github.com/rezaiyan/eatit.git']]
                 ])
             }
         }
@@ -88,6 +88,16 @@ pipeline {
                     VARIANT = getBuildType()
                     sh "./gradlew -PstorePass=${STORE_PASSWORD} -PfilePath=${env.WORKSPACE}/${STORE_PATH} -Palias=${KEY_ALIAS} -PkeyPass=${KEY_PASSWORD} bundle${VARIANT}"
                 }
+            }
+        }
+
+        stage('Publish AppCenter') {
+            steps {
+                appCenter apiToken: APPCENTER_API_TOKEN,
+                        ownerName: 'janes-addiction',
+                        appName: 'eatit',
+                        pathToApp: 'three/days/release.apk',
+                        distributionGroups: 'testers'
             }
         }
 

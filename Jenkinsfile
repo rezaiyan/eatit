@@ -34,7 +34,7 @@ def isDeployCandidate() {
 pipeline {
 
     agent {
-        node {
+        node('master') {
             dockerfile {
                 label 'master'
                 filename 'Dockerfile'

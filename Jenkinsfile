@@ -34,10 +34,12 @@ def isDeployCandidate() {
 pipeline {
 
     agent {
-        dockerfile {
-            label 'master'
-            filename 'Dockerfile'
-            dir 'docker/jenkins'
+        node {
+            dockerfile {
+                label 'master'
+                filename 'Dockerfile'
+                dir 'docker/jenkins'
+            }
         }
     }
 

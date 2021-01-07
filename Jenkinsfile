@@ -33,13 +33,12 @@ def isDeployCandidate() {
 
 pipeline {
 
-//    agent {
-//        dockerfile {
-//            label 'master'
-//            filename 'Dockerfile'
-//            dir 'docker/jenkins'
-//        }
-//    }
+    agent {
+        dockerfile {
+            filename 'Dockerfile'
+            dir 'docker/jenkins'
+        }
+    }
 
     options {
         timestamps()

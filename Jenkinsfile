@@ -33,12 +33,12 @@ def isDeployCandidate() {
 
 pipeline {
 
-//    agent {
+    agent {
 //        dockerfile {
 //            filename 'Dockerfile'
 //            dir 'docker/jenkins'
 //        }
-//    }
+    }
 
     options {
         timestamps()

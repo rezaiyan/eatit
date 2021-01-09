@@ -32,11 +32,12 @@ def isDeployCandidate() {
 }
 
 pipeline {
-
-    agent {
-        dockerfile {
-            filename 'Dockerfile'
-            dir 'docker/jenkins'
+    node {
+        stage('Docker initialization') {
+            dockerfile {
+                filename 'Dockerfile'
+                dir 'docker/jenkins'
+            }
         }
     }
 

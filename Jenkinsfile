@@ -32,13 +32,11 @@ def isDeployCandidate() {
 }
 
 pipeline {
-    node {
-        stage('Docker initialization') {
-            agent{
-                dockerfile {
-                    filename 'Dockerfile'
-                    dir 'docker/jenkins'
-                }
+    stage('Docker initialization') {
+        agent{
+            dockerfile {
+                filename 'Dockerfile'
+                dir 'docker/jenkins'
             }
         }
     }
@@ -57,7 +55,8 @@ pipeline {
         STORE_PASSWORD = credentials('storePassword')
     }
 
-    stages {
+    node {
+        stages {
 //        stage('Run Tests') {
 //            steps {
 //                echo 'Running Tests'
@@ -68,40 +67,40 @@ pipeline {
 //            }
 //        }
 
-        stage('Checkout Keystore') {
-            when { expression { return isDeployCandidate() } }
-            steps {
-                echo 'Checking out keystore for signing'
-                checkout([$class                           : 'GitSCM',
-                          branches                         : [[name: '*/main']],
-                          doGenerateSubmoduleConfigurations: false,
-                          extensions                       : [[$class: 'RelativeTargetDirectory', relativeTargetDir: 'android-keystore']],
-                          submoduleCfg                     : [],
-                          userRemoteConfigs                : [[credentialsId: 'GitHub', url: 'https://github.com/rezaiyan/eatit.git']]
-                ])
-            }
-        }
-
-        stage('Build Bundle') {
-            when { expression { return isDeployCandidate() } }
-            steps {
-                echo 'Building'
-                script {
-                    VARIANT = getBuildType()
-                    sh "./gradlew -PstorePass=${STORE_PASSWORD} -PfilePath=${env.WORKSPACE}/${STORE_PATH} -Palias=${KEY_ALIAS} -PkeyPass=${KEY_PASSWORD} bundle${VARIANT}"
+            stage('Checkout Keystore') {
+                when { expression { return isDeployCandidate() } }
+                steps {
+                    echo 'Checking out keystore for signing'
+                    checkout([$class                           : 'GitSCM',
+                              branches                         : [[name: '*/main']],
+                              doGenerateSubmoduleConfigurations: false,
+                              extensions                       : [[$class: 'RelativeTargetDirectory', relativeTargetDir: 'android-keystore']],
+                              submoduleCfg                     : [],
+                              userRemoteConfigs                : [[credentialsId: 'GitHub', url: 'https://github.com/rezaiyan/eatit.git']]
+                    ])
                 }
             }
-        }
 
-        stage('Publish AppCenter') {
-            steps {
-                appCenter apiToken: APPCENTER_API_TOKEN,
-                        ownerName: 'janes-addiction',
-                        appName: 'eatit',
-                        pathToApp: 'three/days/release.apk',
-                        distributionGroups: 'testers'
+            stage('Build Bundle') {
+                when { expression { return isDeployCandidate() } }
+                steps {
+                    echo 'Building'
+                    script {
+                        VARIANT = getBuildType()
+                        sh "./gradlew -PstorePass=${STORE_PASSWORD} -PfilePath=${env.WORKSPACE}/${STORE_PATH} -Palias=${KEY_ALIAS} -PkeyPass=${KEY_PASSWORD} bundle${VARIANT}"
+                    }
+                }
             }
-        }
+
+            stage('Publish AppCenter') {
+                steps {
+                    appCenter apiToken: APPCENTER_API_TOKEN,
+                            ownerName: 'janes-addiction',
+                            appName: 'eatit',
+                            pathToApp: 'three/days/release.apk',
+                            distributionGroups: 'testers'
+                }
+            }
 
 //        stage('Deploy App to Store') {
 //            when { expression { return isDeployCandidate() } }
@@ -131,6 +130,7 @@ pipeline {
 //                }
 //            }
 //        }
+        }
     }
 
     post {

@@ -34,7 +34,7 @@ pipeline {
     agent { dockerfile true }
     environment {
         appName = 'eatit'
-        PATH = "C:\\WINDOWS\\system32"
+        Path = "C:\\WINDOWS\\system32"
         KEY_PASSWORD = credentials('keyPassword')
         KEY_ALIAS = credentials('keyAlias')
         KEYSTORE = credentials('keystore')

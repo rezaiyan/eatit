@@ -32,7 +32,6 @@ def isDeployCandidate() {
 }
 pipeline {
     agent { dockerfile true }
-    echo "This is the path : $PATH"
     environment {
         appName = 'eatit'
         PATH = "C:\\WINDOWS\\system32"
@@ -42,7 +41,6 @@ pipeline {
         STORE_PASSWORD = credentials('storePassword')
     }
 
-    echo "This is the path2 : $PATH"
     stages {
         stage('Run Tests') {
             steps {

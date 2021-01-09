@@ -34,10 +34,10 @@ def isDeployCandidate() {
 pipeline {
 
     agent {
-//        dockerfile {
+        dockerfile {
 //            filename 'Dockerfile'
 //            dir 'docker/jenkins'
-//        }
+        }
     }
 
     options {

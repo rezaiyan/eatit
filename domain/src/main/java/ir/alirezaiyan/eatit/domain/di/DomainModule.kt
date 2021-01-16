@@ -3,7 +3,7 @@ package ir.alirezaiyan.eatit.domain.di
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
-import dagger.hilt.android.components.ApplicationComponent
+import dagger.hilt.components.SingletonComponent
 import ir.alirezaiyan.eatit.cache.FoodDBModel
 import ir.alirezaiyan.eatit.domain.home.Food
 import ir.alirezaiyan.eatit.domain.home.Home
@@ -14,7 +14,7 @@ import ir.alirezaiyan.eatit.domain.mapper.Mapper
 import ir.alirezaiyan.network.HomeResponse
 
 @Module
-@InstallIn(ApplicationComponent::class)
+@InstallIn(SingletonComponent::class)
 object DomainModule {
 
     @Provides

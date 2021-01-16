@@ -9,7 +9,7 @@ object Versions {
 
     const val assistedInjectDagger2: String = "0.5.2"
 
-    const val hiltAndroidGradlePlugin: String = "2.28.3-alpha"
+    const val hiltAndroidGradlePlugin: String = "2.31-alpha"
 
     const val buildGradle: String = "4.0.1"
 

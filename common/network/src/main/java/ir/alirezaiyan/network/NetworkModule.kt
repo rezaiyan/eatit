@@ -3,7 +3,7 @@ package ir.alirezaiyan.network
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
-import dagger.hilt.android.components.ApplicationComponent
+import dagger.hilt.components.SingletonComponent
 import io.reactivex.schedulers.Schedulers
 import ir.alirezaiyan.eatit.network.BuildConfig
 import okhttp3.*
@@ -17,7 +17,7 @@ import javax.inject.Singleton
 
 
 @Module
-@InstallIn(ApplicationComponent::class)
+@InstallIn(SingletonComponent::class)
 object NetworkModule {
 
     @Provides
@@ -48,7 +48,7 @@ private fun httpClient(debug: Boolean): OkHttpClient {
     return clientBuilder.build()
 }
 
-fun fakeInterceptor() = object : Interceptor{
+fun fakeInterceptor() = object : Interceptor {
     override fun intercept(chain: Interceptor.Chain): Response {
         return Response.Builder()
             .code(200)
